@@ -71,10 +71,12 @@ func (c *Client) ListShifts(startDate string, endDate string) (*Response, error)
 		log.Fatal(err)
 	}
 
+	// Set query parameters
 	q := req.URL.Query()
 	q.Add("start_date", startDate)
 	q.Add("end_date", endDate)
-	q.Add("page_size", "100")
+	q.Add("batch", "1000")
+	req.URL.RawQuery = q.Encode()
 
 	resp := Response{}
 	err = c.sendRequest(req, &resp)

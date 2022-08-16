@@ -51,10 +51,12 @@ type PageInfo struct {
 }
 
 type Shift struct {
-	ID      string    `json:"id"`
-	Name    string    `json:"name"`
-	Updated time.Time `json:"updated"`
-	Created time.Time `json:"created"`
+	ID        string    `json:"id"`
+	Name      string    `json:"name"`
+	StartDate string    `json:"start_date"`
+	EndDate   string    `json:"end_date"`
+	Updated   time.Time `json:"updated"`
+	Created   time.Time `json:"created"`
 }
 
 type Site struct {

@@ -32,11 +32,12 @@ type Error struct {
 }
 
 type Data struct {
-	AccessToken string   `json:"access_token,omitempty"`
-	Count       string   `json:"count,omitempty"`
-	Page        *Page    `json:"page,omitempty"`
-	Shifts      *[]Shift `json:"shifts,omitempty"`
-	Sites       *[]Site  `json:"sites,omitempty"`
+	AccessToken string      `json:"access_token,omitempty"`
+	Count       string      `json:"count,omitempty"`
+	Locations   *[]Location `json:"locations,omitempty"`
+	Page        *Page       `json:"page,omitempty"`
+	Shifts      *[]Shift    `json:"shifts,omitempty"`
+	Sites       *[]Site     `json:"sites,omitempty"`
 }
 
 type Page struct {
@@ -59,6 +60,17 @@ type Shift struct {
 	EndDate     string    `json:"end_date"`
 	Updated     time.Time `json:"updated"`
 	Created     time.Time `json:"created"`
+	Location    *Location `json:"location"`
+}
+
+type Location struct {
+	Address string `json:"address"`
+	City    string `json:"city"`
+	Country string `json:"country"`
+	ID      string `json:"id"`
+	Name    string `json:"name"`
+	State   string `json:"state"`
+	Zip     string `json:"zip"`
 }
 
 type Site struct {
